@@ -69,4 +69,3 @@ function Get-VirusTotalTest {
     }
 }
 
-# 8159fca6b94475f96cfb94e4fa3f74c8fa8986ead65a36c5cbd5c650e6dd462b apikey de alondra
