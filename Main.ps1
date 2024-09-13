@@ -1,5 +1,4 @@
-﻿$modulePath = "$PSScriptRoot\Modules"
-Import-Module "$modulePath\Module_1.psm1"
+﻿Import-Module Module_1
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -15,6 +14,22 @@ function Get-Menu {
     Write-Host "5. Salir"
 }
 
+
+<#
+.SYNOPSIS
+Menú principal que realiza funciones de ciberseguridad.
+
+.DESCRIPTION
+Desglosa un menú que muestra 4 funciones en especifico de ciberseguridad, cada una de las cuales fueron importadas de un modulo.
+
+.EXAMPLE
+Use-Menu desglosa el menu y debes escoger una de las prosibles
+
+.NOTES
+Puedes obtener la ayuda de cada funcion desglosando Get-Help (nombre de la funcion). Los modulos se descargan en una de las carpetas de 
+PowerShell ubicadas en la variable $env:PSModulePath.
+
+#>
 
 function Use-Menu {
     do {
