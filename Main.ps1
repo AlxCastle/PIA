@@ -45,9 +45,12 @@ function Use-Menu {
                 }
                 2 {
                     Write-Host "Listado de archivos ocultos en una carpeta."
+                    $path= Read-Host "Ingrese la ruta que desee ver los archivos ocultos"
+                    Show-HiddenFiles -path $path
                 }
                 3 {
                     Write-Host "Revisión de uso de recursos del sistema."
+                    View-Resources
                 }
                 4 {
                     Write-Host "Tarea adicional de ciberseguridad."
