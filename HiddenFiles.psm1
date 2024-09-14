@@ -2,7 +2,6 @@
 Description:The function is used to see the hidden files in a path or to see all the files including the hidden ones, with the relevant validations
 Parameters: The only parameter requested is a route, it is mandatory since if the parameter does not exist the function is of no use, it has a try to verify that the route exists
 #>
-param([string]$path)
 function Show-HiddenFiles{
     param([Parameter(Mandatory)][string]$path)
 #It starts with a try to be able to end the function in case the route does not exist
@@ -13,7 +12,7 @@ hidden files and they are the ones that it collects in the case of the first var
         $all_files=Get-ChildItem -Path $path -Force }
     }
     catch{
-        Write-Host "La ruta de acceso no es v·lida."
+        Write-Host "La ruta de acceso no es v√°lida."
         break
     }
 #A number is read into a variable that will be the option to see the files you want
