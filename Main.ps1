@@ -2,8 +2,8 @@
 $modulePath = $PSScriptRoot
 # Import the modules by specifying the full path
 Import-Module "$modulePath\Module_1\Module_1.psm1"
-Import-Module "$modulePath\Module_2\HiddenFiles.psm1"
-Import-Module "$modulePath\Module_3\ViewResources.psm1"
+Import-Module "$modulePath\Module_2\Module_2.psm1"
+Import-Module "$modulePath\Module_3\Module_3.psm1"
 Import-Module "$modulePath\Module_4\Module_4.psm1"
 
 Set-StrictMode -Version Latest
