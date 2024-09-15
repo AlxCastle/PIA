@@ -1,4 +1,10 @@
-﻿Import-Module Module_1
+# Get the path of the current directory of the script
+$modulePath = $PSScriptRoot
+# Import the modules by specifying the full path
+Import-Module "$modulePath\Module_1\Module_1.psm1"
+Import-Module "$modulePath\Module_2\HiddenFiles.psm1"
+Import-Module "$modulePath\Module_3\ViewResources.psm1"
+Import-Module "$modulePath\Module_4\Module_4.psm1"
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -10,24 +16,25 @@ function Get-Menu {
     Write-Host "1. Revisión de hashes de archivos y consulta a la API de VirusTotal"
     Write-Host "2. Listado de archivos ocultos en una carpeta"
     Write-Host "3. Revisión de uso de recursos del sistema"
-    Write-Host "4. Tarea adicional de ciberseguridad"
+    Write-Host "4. Ver permisos de las carpetas (Tarea adicional de ciberseguridad"
     Write-Host "5. Salir"
 }
 
 
 <#
 .SYNOPSIS
-Menú principal que realiza funciones de ciberseguridad.
+Main menu that performs cybersecurity functions.
 
 .DESCRIPTION
-Desglosa un menú que muestra 4 funciones en especifico de ciberseguridad, cada una de las cuales fueron importadas de un modulo.
+Displays a menu that shows 4 specific cybersecurity functions, each of which was imported from a module.
 
 .EXAMPLE
-Use-Menu desglosa el menu y debes escoger una de las prosibles
+Use-Menu displays the menu, and you need to choose one of the available options.
 
 .NOTES
-Puedes obtener la ayuda de cada funcion desglosando Get-Help (nombre de la funcion). Los modulos se descargan en una de las carpetas de 
-PowerShell ubicadas en la variable $env:PSModulePath.
+You can obtain the help for each function by using Get-Help (function name). The modules are downloaded into one of the folders in
+PowerShell located in the $env:PSModulePath variable.
+To use them in this script, we import them by defining the script path with PSScriptRoot and then use that path to import them correctly.
 
 #>
 
@@ -53,7 +60,18 @@ function Use-Menu {
                     View-Resources
                 }
                 4 {
-                    Write-Host "Tarea adicional de ciberseguridad."
+                    Write-Host "Ver permisos de las carpetas (Tarea adicional de ciberseguridad)"
+                    $opcion_Module4= Read-Host "Elige la opción a realizar: 1-Ver permisos de una carpeta en específico 2-Comparar permisos entre dos carpetas"
+                    if( $opcion_Module4 -eq 1){
+                        $path= Read-Host "Ingrese la ruta de la carpeta que desea ver sus permisos"
+                        Show-Permissions -FolderPath $path
+                        } elseif ( $opcion_Module4 -eq 2){
+                            $path = Read-Host "Ingrese la ruta de la primera carpeta"
+                            $path_2 = Read-Host "Ingrese la ruta de la segunda carpeta"
+                            Compare-Permissions -Folder1 $path -Folder2 $path_2                    
+                        } else{
+                            Write-Host "Opción no válida, vuelve a intentarlo"
+                                }
                 }
                 5 {
                     Write-Host "Saliendo..."
