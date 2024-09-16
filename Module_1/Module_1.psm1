@@ -1,29 +1,27 @@
-﻿
 <#
 .SYNOPSIS
-Hashes de los archivos en una carpeta especificada.
+Hashes of the files in a specified folder.
 
 .DESCRIPTION
-Esta función recorre todos los archivos de una carpeta dada y calcula el hash de cada archivo 
-usando el algoritmo predeterminado(SHA256). Mediante la Api VirusTotal realiza una consulta del estado 
-de cada hashs obtenido.
+This function goes through all the files in a given folder and calculates the hash of each file
+using the default algorithm (SHA256). Using the VirusTotal API, it performs a query of the status
+of each hash obtained.
 
 .PARAMETER folderPath
-La ruta completa de la carpeta de la cual se desean obtener los hashes de los archivos.
+The full path of the folder from which you want to obtain the file hashes.
 
 .PARAMETER apikey
-La clave Api obtenida de la api VirusTotal al registrarse.
+The API key obtained from the VirusTotal API when registering.
 
 .EXAMPLE
-Get-VirusTotalTest -folderPath C:\MisArchivos -apikey 9ab213bk4h1213...
+Get-VirusTotalTest -folderPath C:\MyFiles -apikey 9ab213bk4h1213...
 
 .EXAMPLE
-$information = Get-VirusTotalTest -folderPath C:\MisArchivos -apikey 9ab213bk4h1213...
-$information es de tipo diccionario. 
+$information = Get-VirusTotalTest -folderPath C:\MyFiles -apikey 9ab213bk4h1213...
+$information is a dictionary type.
 
 .NOTES
-Asegúrate de tener permisos de acceso a la carpeta, y verificar que la apikey no ha expirado para evitar errores.
-
+Make sure you have access permissions to the folder, and verify that the apikey has not expired to avoid errors.
 #>
 
 function Get-VirusTotalTest {
@@ -57,12 +55,12 @@ function Get-VirusTotalTest {
                         Write-Host "$($info.Name): $($info.Value)"
                     }
                 } catch {
-                    Write-Error "Error al realizar la solicitud a la API de VirusTotal: $_" -ErrorAction Stop
+                    Write-Error "Error al realizar la solicitud a la API de VirusTotal: $_" 
                 }
                 Start-Sleep -Seconds 3
             }
         } catch {
-            Write-Error "Error al obtener el hash de los archivos: $_" -ErrorAction Stop
+            Write-Error "Error al obtener el hash de los archivos: $_"
         }
     } else {
         Write-Host "No existe la carpeta especificada." -ForegroundColor Yellow
