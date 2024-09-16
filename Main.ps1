@@ -28,6 +28,12 @@ Main menu that performs cybersecurity functions.
 .DESCRIPTION
 Displays a menu that shows 4 specific cybersecurity functions, each of which was imported from a module.
 
+.AUTHOR
+Team 3: Manuel Delgado Gomez, Emilio Puente Cardona, Alondra Castillo Gonzalez
+    
+.REQUIRES
+-Modules Module_1, Module_2, Module_3, Module_4
+
 .EXAMPLE
 Use-Menu displays the menu, and you need to choose one of the available options.
 
