@@ -32,10 +32,9 @@ Displays a menu that shows 4 specific cybersecurity functions, each of which was
 Use-Menu displays the menu, and you need to choose one of the available options.
 
 .NOTES
-You can obtain the help for each function by using Get-Help (function name). The modules are downloaded into one of the folders in
-PowerShell located in the $env:PSModulePath variable.
-To use them in this script, we import them by defining the script path with PSScriptRoot and then use that path to import them correctly.
-
+You can obtain the help for each function by using Get-Help (function name). 
+To use the modules in this script, we import them by defining the script path with PSScriptRoot and then use that path to import them correctly.
+If you download the modules in the folder that has powershell, you only need to put Import-Module Module_(Number) 
 #>
 
 function Use-Menu {
